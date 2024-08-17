@@ -1,0 +1,270 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #2a2020;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-image: url("../Assets/images/Wavyline.png");
+  background-size: 150%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.container {
+  width: 70%; /* Reduced width for a more compact layout */
+  padding: 15px; /* Slightly reduced padding */
+  border: 1px solid white;
+  border-radius: 20px; /* Slightly smaller border radius */
+  margin-top: 30px; /* Reduced top margin */
+}
+
+.order {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 10px; /* Reduced padding */
+  border-radius: 20px; /* Slightly smaller border radius */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Reduced shadow for a lighter look */
+  margin-bottom: 15px; /* Reduced bottom margin */
+}
+
+.order .code {
+  flex: 0.3; /* Reduced flex for a smaller section */
+  text-align: center;
+  font-size: 14px; /* Slightly smaller font size */
+}
+
+.order .info {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 5px; /* Reduced gap between elements */
+  background-color: transparent;
+  color: white;
+  padding: 5px; /* Reduced padding */
+  font-size: 14px; /* Slightly smaller font size */
+}
+
+.icons {
+  display: flex;
+  gap: 5px; /* Reduced gap between icons */
+  margin-top: 5px; /* Reduced top margin */
+}
+
+.icon-btn {
+  width: 25px; /* Slightly smaller icons */
+  height: 25px;
+  cursor: pointer;
+}
+
+.search-bar {
+  width: 60%; /* Reduced width for the search bar */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  margin-top: 80px; /* Slightly reduced top margin */
+  z-index: 1;
+  background-color: transparent;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 6px 35px; /* Slightly reduced padding */
+  border: 1px solid #ccc;
+  border-radius: 15px; /* Slightly smaller border radius */
+  box-sizing: border-box;
+  color: white;
+  background-color: transparent;
+  font-size: 14px; /* Slightly smaller font size */
+}
+
+.search-icon,
+.cross-icon,
+.filter-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px; /* Slightly smaller icon font size */
+  cursor: pointer;
+}
+
+.search-icon {
+  left: 10px;
+}
+
+.cross-icon {
+  right: 10px;
+}
+
+.filter-icon {
+  right: 40px;
+}
+
+.suggestions-box {
+  position: absolute;
+  top: calc(100% + 5px); /* Reduced margin between search bar and suggestions */
+  left: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  max-height: 150px; /* Reduced max height */
+  overflow-y: auto;
+  width: 100%;
+  z-index: 1000;
+  display: none;
+}
+
+.suggestion-item {
+  padding: 8px; /* Slightly reduced padding */
+  cursor: pointer;
+  color: black;
+  font-size: 14px; /* Slightly smaller font size */
+}
+
+.suggestion-item:hover {
+  background-color: #f0f0f0;
+}
+.floating-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%; /* Make the button itself circular */
+  cursor: pointer;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  overflow: hidden; /* Ensure the image does not overflow the button */
+  padding: 0; /* Remove any padding to ensure the image fits perfectly */
+  z-index: 1000;
+}
+
+.floating-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the button area */
+  border-radius: 50%; /* Make the image itself circular */
+}
+/* Existing styles... */
+
+.floating-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  padding: 0;
+  z-index: 1000;
+}
+
+.floating-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.popup-container {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Dark transparent background behind the popup */
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+
+.popup-content {
+  background-color: rgba(255, 255, 255, 0); /* Fully transparent background */
+  padding: 30px; /* Increased padding for a larger feel */
+  border-radius: 15px; /* Slightly larger border radius for a smoother look */
+  width: 80%; /* Increased width for a bigger popup */
+  max-width: 600px; /* Larger max-width for bigger screens */
+  position: relative;
+}
+
+.close-popup {
+  position: absolute;
+  top: 20px; /* Move it down slightly */
+  right: 20px; /* Move it right slightly */
+  font-size: 28px; /* Increase the size of the close button */
+  color: rgb(255, 255, 255); /* Make the close button black for visibility */
+  cursor: pointer;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 20px;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Lightly tinted background for input container */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.input-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.input-field label {
+  flex: 1;
+  color: white; /* Keep the label color white for contrast against the dark background */
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.input-field input {
+  flex: 2;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: black;
+  background-color: #fff;
+}
+
+.input-container .save-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.input-container .save-button:hover {
+  background-color: #45a049;
+}

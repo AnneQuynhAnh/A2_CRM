@@ -1,0 +1,355 @@
+@font-face {
+  font-family: "MinionProBold";
+  src: url("../Assets/font/MINIONPRO-BOLD.OTF") format("opentype");
+}
+
+body {
+  font-family: "MinionProBold", sans-serif;
+  background-color: #2a2020;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-image: url("../Assets/images/Wavyline.png");
+  background-size: 150%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.search-bar {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-top: 80px; /* Moved down by increasing margin-top */
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 8px 30px 8px 40px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-sizing: border-box;
+  background-color: #333;
+  color: white;
+}
+
+.search-bar .search-icon,
+.search-bar .cross-icon,
+.search-bar .filter-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: white;
+}
+
+.search-bar .search-icon {
+  left: 10px;
+}
+
+.search-bar .cross-icon {
+  right: 10px;
+  cursor: pointer;
+}
+
+.search-bar .filter-icon {
+  right: 40px; /* Adjust as needed */
+  cursor: pointer;
+}
+
+.filter-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 10px;
+  background-color: #333;
+  border-radius: 5px;
+  padding: 10px;
+  display: none;
+}
+
+.filter-dropdown label {
+  display: block;
+  margin-bottom: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.container {
+  width: 80%;
+  padding: 20px;
+  border: 1px solid white;
+  border-radius: 30px;
+  margin-top: 50px;
+}
+
+.order {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 15px;
+  border-radius: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.order .section {
+  padding: 0 10px;
+}
+
+.order .section:not(:first-child) {
+  border-left: 1px solid white;
+}
+
+.order .section p {
+  margin: 2px 0;
+  font-size: 12px;
+}
+
+.order .code {
+  flex: 0.5;
+  text-align: center;
+}
+
+.order .info {
+  flex: 2;
+  display: flex;
+  justify-content: space-around;
+}
+
+.order .charged {
+  flex: 1;
+  text-align: center;
+}
+
+.order .actions {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.order .actions .result button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  padding: 5px 10px;
+  background-color: white;
+  color: black;
+  border: none;
+  cursor: pointer;
+}
+
+.order .actions .result button.completed {
+  background-color: green;
+  color: white;
+}
+
+.suggestions-box {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+  z-index: 10000;
+  display: none;
+  margin-top: 10px; /* Adjust this value to move the suggestions box down */
+}
+
+.icon-btn {
+  width: 24px; /* Set a fixed width for the icons */
+  height: 24px; /* Set a fixed height for the icons */
+  margin: 0 5px; /* Add some margin between icons */
+  cursor: pointer;
+}
+
+.status-btn {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px; /* Adjust padding for equal size */
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100px; /* Set a fixed width for equal size */
+  text-align: center;
+}
+
+.status-btn:hover {
+  background-color: #45a049;
+}
+
+.section.actions {
+  display: flex;
+  justify-content: space-between; /* Space the icons and button evenly */
+  align-items: center;
+}
+
+.result {
+  flex-grow: 1; /* Let the status button grow to fill space */
+  display: flex;
+  justify-content: center; /* Center the button */
+}
+
+.icon-btn,
+.status-btn {
+  flex-shrink: 0; /* Prevent buttons from shrinking */
+}
+
+/* Modal styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Billing Section */
+.billing-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Adjust spacing between columns */
+  padding: 20px;
+  position: relative;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.column {
+  flex: 1; /* Make columns flexible */
+  padding: 10px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Spacing between elements in the column */
+}
+
+.column p {
+  margin: 10px 0;
+}
+
+.column input[type="text"],
+.column input[type="number"],
+.column select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.column label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+.qr-code {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 15px;
+}
+
+.billing-section .column input[type="radio"] {
+  margin-right: 10px;
+}
+
+.billing-section .column label[for="paymentCash"],
+.billing-section .column label[for="paymentTransaction"],
+.billing-section .column label[for="deliveryPickup"],
+.billing-section .column label[for="deliveryDelivery"] {
+  margin-right: 15px;
+}
+
+#cashDetails,
+#transactionDetails,
+#pickupDetails,
+#deliveryDetails {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+}
+
+#finalProductDetails {
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+}
+.order .info {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 10px; /* Spacing between elements */
+  background-color: transparent; /* Ensure the background matches the page */
+  color: white; /* Ensure text color is white for readability */
+  padding: 10px; /* Add padding for better spacing */
+}
+
+.order .info .column {
+  background-color: transparent; /* Set column background to transparent */
+}
+.update-btn {
+  background-color: #d73c21; /* Green background */
+  color: white; /* White text */
+  border: none;
+  padding: 10px 20px; /* Padding for the button */
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 20px; /* Position it at the bottom */
+  right: 20px; /* Position it at the right */
+}
+
+.update-btn:hover {
+  background-color: #4caf50; /* Darker green on hover */
+}

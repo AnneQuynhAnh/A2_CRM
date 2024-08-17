@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Báo Cáo Thu Nhập</title>
+    <link rel="stylesheet" href="../CSS/product.css" />
+    <link rel="stylesheet" href="../CSS/navbar-ad.css" />
+  </head>
+  <body>
+    <header id="navbar-placeholder"></header>
+
+    <!-- Search bar section -->
+    <div class="search-bar">
+      <input type="text" id="search-input" placeholder="Tìm Kiếm Sản Phẩm" />
+      <span class="search-icon">🔍</span>
+      <span class="cross-icon" style="display: none">❌</span>
+    </div>
+
+    <!-- Container to display product details -->
+    <div class="container">
+      <!-- Product details will be dynamically inserted here by JavaScript -->
+    </div>
+
+    <!-- Floating Add Button -->
+    <button id="add-button" class="floating-button">
+      <img src="../Assets/images/add.png" alt="Add" />
+    </button>
+
+    <!-- Pop-up container -->
+    <div id="popup-container" class="popup-container">
+      <div class="popup-content">
+        <span id="close-popup" class="close-popup">&times;</span>
+        <div class="input-container">
+          <div class="input-field">
+            <label for="product-name">Tên Sản Phẩm:</label>
+            <input type="text" id="product-name" placeholder="Nhập tên SP" />
+          </div>
+          <div class="input-field">
+            <label for="product-specification">Quy Cách Sản Phẩm:</label>
+            <input
+              type="text"
+              id="Thông số kỹ thuật sản phẩm"
+              placeholder="Nhập quy cách SP"
+            />
+          </div>
+          <div class="input-field">
+            <label for="price-per-m2">Giá/m²:</label>
+            <input type="text" id="price-per-m2" placeholder="Giá mỗi m²" />
+          </div>
+          <div class="input-field">
+            <label for="price-per-unit">Giá/Sản phẩm:</label>
+            <input
+              type="text"
+              id="price-per-unit"
+              placeholder="Giá mỗi đơn vị"
+            />
+          </div>
+          <div class="input-field">
+            <label for="extra-supply">Vật tư dư:</label>
+            <input
+              type="text"
+              id="extra-supply"
+              placeholder="Giá mỗi m² vật tư dư"
+            />
+          </div>
+          <div class="input-field">
+            <label for="whole-sale"> Giá Sỉ:</label>
+            <input type="text" id="whole-sale" placeholder="Giá sỉ" />
+          </div>
+          <div class="input-field">
+            <label for="quantity-frame">Khung số lượng:</label>
+            <input
+              type="text"
+              id="quantity-frame"
+              placeholder="Nhập khung số lượng"
+            />
+          </div>
+          <div class="input-field">
+            <label for="note">Ghi Chú:</label>
+            <input type="text" id="note" placeholder="Nhập ghi chú" />
+          </div>
+          <button id="save-button" class="save-button">Lưu</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../JavaScript/product.js"></script>
+    <script src="../JavaScript/navbar-ad.js"></script>
+  </body>
+</html>
